@@ -1,0 +1,25 @@
+:root {
+  --bg-main: #0f1115;
+  --bg-section: #151821;
+  --text-main: #e6e6e6;
+  --text-muted: #a0a4b8;
+  --accent: #e63946;
+
+  --container-width: 1200px;
+  --radius: 12px;
+}
+
+:root {
+  /* Typography scale */
+  --fs-base: clamp(16px, 1.2vw, 18px);
+  --fs-sm: clamp(14px, 1.1vw, 15px);
+  --fs-lg: clamp(18px, 1.4vw, 20px);
+
+  --fs-h1: clamp(28px, 4.5vw, 48px);
+  --fs-h2: clamp(22px, 3.2vw, 36px);
+  --fs-h3: clamp(18px, 2.2vw, 24px);
+
+  /* Line height */
+  --lh-base: 1.6;
+  --lh-tight: 1.25;
+}

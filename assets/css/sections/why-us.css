@@ -1,0 +1,20 @@
+.why-us {
+  background-color: var(--bg-main);
+}
+
+.why-us-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 768px) {
+  .why-us-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.why-us-item {
+  padding: 20px;
+  border-left: 3px solid var(--accent);
+}

@@ -1,0 +1,43 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  margin: 0 0 0.6em;
+  font-weight: 600;
+  line-height: var(--lh-tight);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+/* Text */
+p {
+  margin: 0 0 1em;
+  color: var(--text-muted);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}

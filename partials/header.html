@@ -1,27 +1,33 @@
-<header class="site-header">
+<header class="header">
   <div class="header-container">
 
     <!-- Logo -->
     <div class="logo">
-      <a href="/" aria-label="DETAILINGWEB – hovedside">
-        <img src="/assets/images/logo.svg" alt="DETAILINGWEB logo" width="140" height="40">
+      <a href="/" aria-label="ReNew Detailing Studio Bergen – hovedside">
+        <img src="/assets/images/Logo_ReNew_White.v5.svg" alt="ReNew Detailing Studio logo" width="48" height="48">
+        <span class="logo-text">
+          <span class="logo-name">ReNew</span>
+          <span class="logo-tagline">Detailing <span class="logo-studio">Studio </span>· Bergen</span>
+        </span>
       </a>
     </div>
 
-    <!-- Navigation -->
+    <!-- Navigation (desktop pill / mobile menu) -->
     <nav class="main-nav" aria-label="Hovedmeny">
       <ul>
-        <li><a href="/bilvask-bergen/">Bilvask</a></li>
-        <li><a href="/bilpolering-bergen/">Bilpolering</a></li>
-        <li><a href="/interior-rens-bergen/">Interiør rens</a></li>
-        <li><a href="/keramisk-coating-bergen/">Keramisk coating</a></li>
-        <li><a href="/kontakt/">Kontakt</a></li>
+        <li><a href="/" class="nav-link is-active">Hjem</a></li>
+        <li><a href="/#forhands-salg" class="nav-link">Forhåndssalg</a></li>
+        <li><a href="/#tjenester" class="nav-link">Tjenester</a></li>
+        <li><a href="/#faq" class="nav-link">FAQ</a></li>
+        <li><a href="/om-oss/" class="nav-link">Om oss</a></li>
+        <!-- CTA shown only inside the mobile menu -->
+        <li class="nav-cta-item"><a href="/kontakt/" class="btn-primary nav-cta">Bestill time</a></li>
       </ul>
     </nav>
 
-    <!-- CTA -->
+    <!-- CTA (desktop only) -->
     <div class="header-cta">
-      <a href="/kontakt/" class="btn btn-primary">Bestill time</a>
+      <a href="/kontakt/" class="btn-primary">Bestill time</a>
     </div>
 
     <!-- Mobile burger -->

@@ -5,6 +5,10 @@
   --text-muted: #a0a4b8;
   --accent: #e63946;
 
+  /* Buttons */
+  --btn-primary-bg: #f05a28;
+  --btn-primary-hover: #d44d1a;
+
   --container-width: 1200px;
   --radius: 12px;
 }

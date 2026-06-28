@@ -1,19 +1,24 @@
+/* =====================
+   HEADER
+   ===================== */
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1100;
 
   background-color: var(--bg-main);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
   min-height: 64px;
-  padding: 12px 16px;
+  padding: 12px 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 900px) {
   .header {
-    min-height: 80px;
-    padding: 16px 32px;
+    min-height: 72px;
+    padding: 14px 40px;
   }
 }
 
@@ -24,111 +29,212 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
-
-/* Navigation */
-.main-nav ul {
-
-  list-style: none;
-  margin: 0;
-  padding: 96px 24px 24px;
-
-  display: grid;
-  gap: 28px;
-  /* was 24px */
-
-  position: fixed;
-  inset: 0;
-
-  height: 100svh;
-  background-color: var(--bg-main);
-  z-index: 1000;
-  align-content: start;
-
-  transform: translateY(-100%);
-  opacity: 0;
-  pointer-events: none;
-
-  transition:
-    transform 0.5s ease,
-    opacity 0.3s ease;
-
-
-  will-change: transform;
-}
-
-/* Links */
-.main-nav a {
-  font-size: 1.25rem;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
-  color: var(--text-main);
+/* =====================
+   LOGO
+   ===================== */
+.logo a {
+  display: flex;
+  align-items: stretch; /* let the text block take the icon's full height */
+  gap: clamp(8px, 1.4vw, 12px);
   text-decoration: none;
+}
+
+.logo img {
+  width: clamp(36px, 5vw, 48px);
+  height: auto;
+  align-self: center; /* keep the icon its natural size */
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* ReNew to the top, tagline to the bottom */
+}
+
+.logo-name {
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1; /* remove extra leading so glyphs sit tight */
+  letter-spacing: 0.01em;
+  color: var(--text-main);
+
+  /* Trim the font's built-in leading so the box hugs the glyphs
+     (cap height on top, baseline on bottom) → true optical centering */
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
+}
+
+.logo-tagline {
+  font-size: clamp(0.55rem, 1.1vw, 0.7rem);
   font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+
+  text-box-trim: trim-both;
+  text-box-edge: cap alphabetic;
 }
 
-.main-nav a:hover,
-.main-nav a:focus-visible {
-  color: var(--accent);
+/* Mobile: bigger logo + name, drop "Studio" from the tagline */
+@media (max-width: 899px) {
+  .logo img {
+    width: clamp(48px, 12vw, 58px);
+  }
+  .logo-name {
+    font-size: clamp(1.6rem, 7vw, 1.9rem);
+    line-height: 1; /* tighter → lifts "ReNew" up to align with the icon */
+  }
+  .logo-tagline {
+    font-size: clamp(0.6rem, 2.6vw, 0.72rem);
+  }
+  .logo-studio {
+    display: none;
+  }
 }
 
-
-/* Mobile menu open */
-.main-nav ul.is-open {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-
-  transition:
-    transform 0.35s ease-out,
-    opacity 0.25s ease-out;
-
+/* On very narrow phones, drop the tagline to avoid crowding the burger */
+@media (max-width: 340px) {
+  .logo-tagline {
+    display: none;
+  }
 }
 
-
-/* Backdrop */
-.main-nav ul::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-
-  background: rgba(15, 17, 21, 0.55);
-
-  z-index: -1;
+/* =====================
+   NAVIGATION PILL
+   ===================== */
+.main-nav {
+  display: none;
 }
 
+@media (min-width: 900px) {
+  .main-nav {
+    display: block;
+  }
 
-/* CTA */
+  /* CTA lives in the header as its own button on desktop, not in the pill */
+  .nav-cta-item {
+    display: none;
+  }
+
+  .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 6px 8px;
+
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .nav-link {
+    display: block;
+    padding: 8px 18px;
+    border-radius: 999px;
+
+    font-size: clamp(0.85rem, 1vw, 0.95rem);
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--text-muted);
+    text-decoration: none;
+
+    transition: color 0.2s ease, background 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--text-main);
+  }
+
+  .nav-link.is-active {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+  }
+}
+
+/* =====================
+   CTA BUTTON
+   ===================== */
 .header-cta {
   display: none;
 }
 
+@media (min-width: 900px) {
+  .header-cta {
+    display: block;
+  }
+}
 
-/* Burger */
+.btn-primary {
+  display: inline-block;
+  padding: clamp(10px, 1.2vw, 13px) clamp(20px, 2vw, 28px);
+  border-radius: 999px;
+
+  background-color: var(--btn-primary-bg);
+  color: #fff;
+  font-size: clamp(0.85rem, 1vw, 0.95rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* =====================
+   BURGER (mobile pill)
+   ===================== */
 .burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  padding: 0;
+
   position: relative;
   z-index: 1200;
 
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+  transition: background 0.2s ease;
+}
 
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+.burger:hover {
+  background: rgba(255, 255, 255, 0.13);
 }
 
 .burger span {
-  width: 24px;
+  width: 20px;
   height: 2px;
   background-color: var(--text-main);
+  border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.2s ease;
 }
 
 .burger.is-active span:nth-child(1) {
-  transform: rotate(45deg) translate(4px, 5px);
+  transform: rotate(45deg) translate(5px, 5px);
 }
 
 .burger.is-active span:nth-child(2) {
@@ -136,39 +242,96 @@
 }
 
 .burger.is-active span:nth-child(3) {
-  transform: rotate(-45deg) translate(4px, -5px);
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
-
-/* Desktop */
-@media (min-width: 768px) {
-  .main-nav ul {
-    position: static;
-    inset: auto;
-
-    height: auto;
-    padding: 0;
-
-    display: flex;
-    gap: 24px;
-
-    transform: none;
-    opacity: 1;
-    pointer-events: auto;
-
-    background: none;
-  }
-
-  .main-nav a {
-    font-size: 1rem;
-    letter-spacing: normal;
-  }
-
+@media (min-width: 900px) {
   .burger {
     display: none;
   }
+}
 
-  .header-cta {
+/* =====================
+   MOBILE MENU
+   ===================== */
+@media (max-width: 899px) {
+  .main-nav {
     display: block;
+  }
+
+  .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 96px 22px 32px;
+
+    /* flex column keeps items together at the top (grid was stretching them) */
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    position: fixed;
+    inset: 0;
+    height: 100svh;
+
+    /* site color with light transparency + frosted blur */
+    background: rgba(15, 17, 21, 0.7);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    z-index: 1000;
+
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 0.3s ease;
+
+    will-change: transform;
+  }
+
+  .main-nav ul.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 18px 22px;
+    border-radius: 14px;
+
+    /* bordered card so taps don't hit the neighbour */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--text-main);
+    text-decoration: none;
+
+    transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.is-active {
+    color: var(--text-main);
+    background: rgba(240, 90, 40, 0.14); /* subtle brand-accent tint */
+    border-color: var(--btn-primary-bg);
+  }
+
+  /* "Bestill time" button inside the mobile menu */
+  .nav-cta-item {
+    margin-top: 8px;
+  }
+
+  .nav-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 18px 22px;
+    border-radius: 14px;
+    font-size: 1.3rem;
   }
 }

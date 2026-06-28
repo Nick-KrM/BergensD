@@ -4,6 +4,7 @@ main {
 
 section {
   padding: 60px 16px;
+  scroll-margin-top: 90px; /* keep anchored sections clear of the fixed header */
 }
 
 @media (min-width: 768px) {

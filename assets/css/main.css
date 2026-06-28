@@ -16,6 +16,10 @@
    SECTIONS
    ===================== */
 @import url("./sections/hero.css");
+@import url("./sections/feature-block.css");
 @import url("./sections/services.css");
+@import url("./sections/service-page.css");
+@import url("./sections/faq.css");
+@import url("./sections/visit.css");
 @import url("./sections/why-us.css");
 @import url("./sections/cta.css");

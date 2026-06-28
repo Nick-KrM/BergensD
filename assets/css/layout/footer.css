@@ -34,6 +34,34 @@
   color: var(--accent);
 }
 
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.footer-logo-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.footer-text {
+  margin: 0;
+  line-height: var(--lh-base);
+  max-width: 38ch;
+}
+
+.footer-contact {
+  font-style: normal; /* <address> defaults to italic */
+  line-height: 1.6;
+}
+
+.footer-contact p {
+  margin: 0 0 8px;
+}
+
 .footer-nav ul {
   list-style: none;
   margin: 0;

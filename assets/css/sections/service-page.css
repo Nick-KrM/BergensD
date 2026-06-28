@@ -1,0 +1,59 @@
+/* =====================
+   SERVICE DETAIL PAGE — intro block (reusable stub)
+   ===================== */
+.service-intro {
+  background-color: var(--bg-main);
+  /* clear the fixed header (first section on the page) */
+  padding-top: clamp(110px, 14vh, 150px);
+}
+
+.service-intro-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .service-intro-inner {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+.service-intro-media {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  /* dark fallback if the image isn't there yet */
+  background-color: var(--bg-section);
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.service-intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(16px, 2.5vw, 22px);
+}
+
+.service-intro-content h1 {
+  margin: 0;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  color: var(--text-main);
+}
+
+.service-intro-content p {
+  margin: 0;
+  max-width: 52ch;
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--text-muted);
+}

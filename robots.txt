@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap: https://DITT-DOMENE.no/sitemap.xml
+# (legg til riktig domene når nettstedet er live)

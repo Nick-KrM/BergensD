@@ -1,0 +1,10 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+*.code-workspace
+
+# Source images (kept locally, but converted to .webp for the site)
+/assets/images/*.png
+/assets/images/*.jpg
+/assets/images/*.jpeg

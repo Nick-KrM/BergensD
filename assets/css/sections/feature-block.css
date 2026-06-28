@@ -1,0 +1,202 @@
+/* =====================
+   Feature Block — Service highlight section
+   (reusable for multiple services)
+   ===================== */
+
+.feature-section {
+  padding: clamp(60px, 8vw, 100px) clamp(16px, 4vw, 32px);
+  background: var(--bg-main);
+}
+
+.feature-section:nth-of-type(even) {
+  background: var(--bg-section);
+}
+
+/* The hero now fades into this section's color at its bottom edge,
+   so the section simply starts with the matching solid background. */
+.feature-section.forhands-salg {
+  background: var(--bg-section);
+}
+
+.feature-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .feature-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Alternate layout: image on right for even sections */
+  .feature-section.reverse .feature-media {
+    order: 2;
+  }
+  .feature-section.reverse .feature-content {
+    order: 1;
+  }
+}
+
+/* ── Media side ── */
+.feature-media {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 2vw, 16px);
+}
+
+.feature-img-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.feature-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.feature-img-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.feature-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(10px, 1.5vw, 16px);
+}
+
+.stat-box {
+  background: var(--bg-section);
+  border-radius: var(--radius);
+  padding: clamp(16px, 2.5vw, 24px) clamp(16px, 2vw, 20px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feature-section:nth-of-type(even) .stat-box {
+  background: var(--bg-main);
+}
+
+.stat-value {
+  font-size: clamp(26px, 3.5vw, 40px);
+  font-weight: 700;
+  color: var(--btn-primary-bg);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+/* ── Content side ── */
+.feature-content {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+}
+
+.section-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  font-size: clamp(11px, 1vw, 13px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  width: fit-content;
+}
+
+.feature-content h2 {
+  font-size: var(--fs-h2);
+  color: var(--text-main);
+  line-height: var(--lh-tight);
+  margin: 0;
+}
+
+/* ── Feature list ── */
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2.5vw, 22px);
+}
+
+.feature-list li {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.feature-icon {
+  width: 26px;
+  height: 26px;
+  color: var(--btn-primary-bg);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.feature-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.feature-list strong {
+  display: block;
+  color: var(--text-main);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.feature-list p {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  margin: 0;
+  line-height: var(--lh-base);
+}
+
+.feature-list p strong {
+  display: inline;
+  color: var(--text-main);
+  font-size: inherit;
+  margin: 0;
+}
+
+/* ── CTA button ── */
+.feature-content .btn-outline {
+  align-self: flex-start;
+}
+
+/* ── Button styles (if not already defined globally) ── */
+.btn-outline {
+  display: inline-block;
+  padding: clamp(10px, 1.5vw, 13px) clamp(20px, 2.5vw, 28px);
+  border: 1.5px solid var(--btn-primary-bg);
+  border-radius: 999px;
+  color: var(--btn-primary-bg);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-outline:hover {
+  background: var(--btn-primary-bg);
+  color: #fff;
+}

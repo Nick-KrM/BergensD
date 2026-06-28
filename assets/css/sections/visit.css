@@ -1,0 +1,99 @@
+/* =====================
+   VISIT / OM OSS — address + map + directions
+   ===================== */
+.visit {
+  background-color: var(--bg-main);
+  /* clear the fixed header (this is the first section on the page) */
+  padding-top: clamp(110px, 14vh, 150px);
+}
+
+.visit-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+
+@media (min-width: 900px) {
+  .visit-inner {
+    grid-template-columns: 1fr 1.1fr;
+  }
+}
+
+/* ── Info side ── */
+.visit-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(16px, 2.5vw, 22px);
+}
+
+.visit-info h1 {
+  margin: 0;
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  color: var(--text-main);
+}
+
+.visit-lead {
+  margin: 0;
+  max-width: 48ch;
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+  color: var(--text-muted);
+}
+
+.visit-contacts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--fs-base);
+  color: var(--text-main);
+}
+
+.visit-contacts .label {
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+
+.visit-contacts a {
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+.visit-contacts a:hover {
+  color: var(--btn-primary-bg);
+}
+
+.visit-cta {
+  align-self: flex-start;
+}
+
+/* ── Map side ── */
+.visit-map {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-section);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.visit-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .visit-map {
+    aspect-ratio: auto;
+    height: clamp(360px, 50vh, 480px);
+  }
+}

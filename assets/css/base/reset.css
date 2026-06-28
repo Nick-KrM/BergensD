@@ -5,7 +5,9 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* JS handles smooth scrolling so we can match the menu's 0.4s easing;
+     native smooth would fight the custom animation */
+  scroll-behavior: auto;
 }
 
 body {
